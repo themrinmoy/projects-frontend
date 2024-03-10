@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="add_product.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Add New Product</h2>
+        <form id="add-product-form">
+            <div class="form-group">
+                <label for="product-name">Product Name:</label>
+                <input type="text" id="product-name" name="product-name" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="">Select Category</option>
+                    <option value="helmets">Helmets</option>
+                    <option value="helmets">Helmets</option>
+                    <option value="helmets">Bikes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="productType">Sell/Rent:</label>
+                <select id="productType" name="type">
+                    <option value="">Select type</option>
+                    <option value="sellable">sellable</option>
+                    <option value="rentable">rentable</option>
+
+                </select>
+            </div>
+            <div class="rental-details">
+                <div class="form-group">
+                    <label for="rentalPricePerDay">Rental Price Per Day:</label>
+                    <input type="number" id="rentalPricePerDay" name="rentalPricePerDay"
+                        value="<%= editing ? product.rentalInfo.rentalPricePerDay : '' %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="rentalDeposit">Rental Deposit:</label>
+                    <input type="number" id="rentalDeposit" name="rentalDeposit"
+                        value="<%= editing ? product.rentalInfo.rentalDeposit : '' %>" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label style="display: inline-block;" for="image">Image Upload:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+                <input class="custom-file-button" type="file" id="image" name="image" accept="image/*">
+
+            </div>
+
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+    <!-- <script src="addproduct.js"></script> -->
+</body>
+<style>
+    .rental-details {
+        display: none;
+        /* Initially hidden */
+    }
+</style>
+
+<script>
+    // addproduct.js
+    const productTypeSelect = document.getElementById('productType');
+    const rentalDetailsDiv = document.querySelector('.rental-details');
+
+    productTypeSelect.addEventListener('change', function () {
+        if (this.value === 'rentable') {
+            rentalDetailsDiv.style.display = 'block'; // Show rental details
+        } else {
+            rentalDetailsDiv.style.display = 'none'; // Hide rental details
+        }
+    });
+
+</script>
+
+</html>

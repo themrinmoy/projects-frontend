@@ -1,0 +1,189 @@
+/* Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f0f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.checkout-container {
+    background-color: #fff;
+    padding: 30px;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+.step {
+    background-color: #ddd;  /* Inactive step color */
+}
+
+.step.active {
+    background-color: #2ecc71; /* Active step color */
+}
+
+.step::after {
+    background-color: #888;  /* Line color */
+}
+
+/* Fancy Progress Bar */
+.progress-bar {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    position: relative;    
+}
+
+.step.active::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -25px;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #28a745; /* Green for active */
+}
+
+.step::after {
+    content:'';
+    width: 80%;
+    height: 4px;
+    background-color: #ddd;
+    position: absolute;
+    left: 10%;
+    top: 5px;
+}
+
+/* More Styling - Sections, forms, buttons, etc. */
+/* ... Other styles ... */
+
+/* Form Styling */
+.checkout-form input[type="text"], .checkout-form input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: calc(100% - 22px); /* Account for padding */
+    margin-bottom: 15px;
+    border-radius: 4px;    
+}
+
+/* Fancy Buttons */
+.buttons button {
+    background-color: #3898EC; /* Example color, adjust to your liking */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.buttons button:hover {
+    background-color: #2a7ac9; /* Slightly darker on hover */
+}
+/* ... Basic Styling, Progress Bar, Form styling from previous example ... */
+
+/* Order Summary Styling */
+.order-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.item-image {
+    margin-right: 20px;
+}
+
+.item-image img {
+    max-width: 100%; 
+}
+
+.order-totals {
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.order-totals p {
+    margin: 5px 0;
+}
+
+.order-totals span {
+    float: right;
+}
+/* Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f0f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.checkout-container {
+    background-color: #fff;
+    padding: 30px;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+/* Fancy Progress Bar */
+/* ... (Styles from previous example) ... */
+
+/* Form Styling */
+.checkout-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.checkout-form input[type="text"], .checkout-form input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: calc(100% - 22px); 
+    margin-bottom: 15px;
+    border-radius: 4px;    
+}
+
+/* Order Summary Styling */
+/* ... (Styles from previous example) ... */
+
+/* Fancy Buttons */
+.buttons button {
+    background-color: #3898EC; 
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.buttons button:hover {
+    background-color: #2a7ac9; 
+}
+/* Gradient Background */
+.checkout-container {
+    background: linear-gradient(to right, #f0f5fa, #e5eff5); /* Customize colors */
+}
+
+/* Fancy Input fields */
+.checkout-form input[type="text"], .checkout-form input[type="email"] {
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.08);  /* Subtle shadow effect */
+} 

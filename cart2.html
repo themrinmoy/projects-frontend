@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your E-Commerce Website</title>
+</head>
+<!-- Include flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<!-- Usage -->
+<!-- Usage -->
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+
+<!-- <script>
+    const flatpickr = require("flatpickr");
+    $(".selector").flatpickr(optional_config);
+
+    // ... (Your existing JavaScript) ...
+
+
+</script> -->
+<script>
+    flatpickr("#myDatePicker", {
+        onChange: function (selectedDates, dateStr, instance) {
+            console.log("Selected date: ", dateStr);
+        },
+    });
+</script>
+
+<style>
+ #myDatePicker {
+        width: 90%;
+        align-items: center;
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 18px;
+    }
+</style>
+
+
+
+<body>
+
+    <section class="cart-page">
+        <div class="container">
+            <h2>Your Shopping Cart</h2>
+
+
+
+
+            <div class="cart-container">
+
+
+                <div class="cart-summary">
+                    <h3>Order Summary</h3>
+                    <div class="subtotal">
+                        <p>Subtotal:</p>
+                        <p>$110.00</p>
+                    </div>
+                    <div class="shipping">
+                        <p>Shipping:</p>
+                        <p>Calculated at checkout</p>
+                    </div>
+                    <div class="total">
+                        <p>Total:</p>
+                        <p>$110.00</p>
+                    </div>
+                    <div class="cleckoutbtn">
+
+                        <button class="checkout-btn">Proceed to Checkout</button>
+                    </div>
+
+                    <div class="date-range-container">
+                        <div class="datapicker">
+                            <input type="text" id="myDatePicker">
+                            <script>
+                                flatpickr("#myDatePicker", {
+                                    mode: "range",
+                                    // locale: "fr",
+                                    dateFormat: "Y-m-d",
+                                    // wrap: true,
+
+                                    minDate: "today",
+
+
+                                    inline: true,
+                                    // enableTime: true
+                                });
+                            </script>
+                        </div>
+                    </div>
+
+                </div>
+             
+            
+
+
+                <div class="cart-items">
+                    <div class="cart-item">
+                        <div class="item-image">
+                            <img src="shoes.png" alt="Product Name">
+                        </div>
+                        <div class="item-details">
+                            <h3>Product Name</h3>
+                            <p class="item-price">$55.00</p>
+                            <div class="quantity">
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" min="1" value="1">
+                            </div>
+                            <button class="remove-item">Remove</button>
+                        </div>
+                    </div>
+                    <div class="cart-item">
+                        <div class="item-image">
+                            <img src="shoes.png" alt="Product Name">
+                        </div>
+                        <div class="item-details">
+                            <h3>Product Name</h3>
+                            <p class="item-price">$55.00</p>
+                            <div class="quantity">
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" min="1" value="1">
+                            </div>
+                            <button class="remove-item">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- </div> -->
+    </section>
+
+
+</body>
+
+<style>
+    .cleckoutbtn {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .checkout-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .date-range-container {
+        margin-top: 20px;
+    }
+</style>
+<script>
+    // Your existing scripts ...
+
+    const quantityInputs = document.querySelectorAll('#quantity');
+
+    quantityInputs.forEach(input => {
+        const minusButton = input.previousElementSibling;
+        const plusButton = input.nextElementSibling;
+
+        minusButton.addEventListener('click', () => {
+            let currentValue = parseInt(input.value);
+            input.value = currentValue > 1 ? currentValue - 1 : 1;
+        });
+
+        plusButton.addEventListener('click', () => {
+            let currentValue = parseInt(input.value);
+            input.value = currentValue + 1;
+        });
+    });
+
+    // Initialize flatpickr for date inputs
+    // const dateRangeInput = document.getElementById('dateRange');
+    // flatpickr(dateRangeInput, {
+    //     mode: 'range', // Enable date range selection
+    //     dateFormat: 'Y-m-d', // Specify the date format
+    //     // You can add more Flatpickr options here if needed
+    // });
+</script>
+
+
+</html>

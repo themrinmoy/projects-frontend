@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart.css">
+    <title>Your E-Commerce Website</title>
+</head>
+
+<body>
+
+    <section class="cart-page">
+        <div class="container">
+            <h2>Your Shopping Cart</h2>
+            <div class="cart-container">
+                <div class="cart-summary">
+                    <h3>Order Summary</h3>
+                    <div class="subtotal">
+                        <p>Subtotal:</p>
+                        <p>$110.00</p>
+                    </div>
+                    <div class="shipping">
+                        <p>Shipping:</p>
+                        <p>Calculated at checkout</p>
+                    </div>
+                    <div class="total">
+                        <p>Total:</p>
+                        <p>$110.00</p>
+                    </div>
+                    <div class="cleckoutbtn">
+                        <button class="checkout-btn">Proceed to Checkout</button>
+                    </div>
+                </div>
+                <div class="cart-items">
+                    <div class="cart-item">
+                        <div class="item-image">
+                            <img src="shoes.png" alt="Product Image">
+                        </div>
+                        <div class="item-details">
+                            <h3>Product Name</h3>
+                            <p class="item-price">$55.00</p>
+                            <div class="quantity">
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" min="1" value="1">
+                            </div>
+                            <!-- Rental-specific details -->
+                            <div class="rental-details" style="display: block;">
+                                <label for="rentalDuration">Rental Duration (Days):</label>
+                                <input type="number" id="rentalDuration" name="rentalDuration" min="1" value="1">
+                                <button class="remove-rental">Remove Rental</button>
+                            </div>
+                            <!-- End of Rental-specific details -->
+                            <button class="remove-item">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const quantityInputs = document.querySelectorAll('#quantity');
+        const rentalDetails = document.querySelectorAll('.rental-details');
+
+        quantityInputs.forEach((input, index) => {
+            const minusButton = input.previousElementSibling;
+            const plusButton = input.nextElementSibling;
+            const rentalDetail = rentalDetails[index];
+
+            minusButton.addEventListener('click', () => {
+                let currentValue = parseInt(input.value);
+                input.value = currentValue > 1 ? currentValue - 1 : 1;
+            });
+
+            plusButton.addEventListener('click', () => {
+                let currentValue = parseInt(input.value);
+                input.value = currentValue + 1;
+            });
+
+            // Toggle rental details visibility
+            input.addEventListener('change', () => {
+                if (parseInt(input.value) > 1) {
+                    rentalDetail.style.display = 'block';
+                } else {
+                    rentalDetail.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

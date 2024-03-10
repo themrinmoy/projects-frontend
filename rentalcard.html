@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include flatpickr styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <style>
+        .rental-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px;
+            width: 300px;
+        }
+
+        .rental-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-details {
+            margin-top: 8px;
+        }
+
+        .rental-cost {
+            margin-top: 8px;
+            font-weight: bold;
+            color: green;
+        }
+
+        .date-range-picker {
+            margin-top: 12px;
+        }
+
+        .rent-button {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="rental-card">
+        <img src="gloves.png" alt="Product Image">
+        <div class="product-details">
+            <h3>Product Name</h3>
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Category: Bike</p>
+        </div>
+        <div class="rental-cost" id="rentalCost">
+            Rental Cost: $10.00 per day
+        </div>
+
+        <!-- Date Range Picker Input -->
+        <div class="date-range-picker">
+            <label for="dateRange">Select Dates:</label>
+            <input type="text" id="dateRange" placeholder="Select dates" />
+        </div>
+
+        <!-- Rent Now Button -->
+        <a href="#" class="rent-button">Rent Now</a>
+    </div>
+
+    <!-- Include flatpickr script -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        // Sample daily rental rate (adjust as needed)
+        const dailyRentalRate = 10;
+
+        // Initialize flatpickr on the date input
+        const dateRangeInput = flatpickr("#dateRange", {
+            mode: "range", // Enable date range selection
+            dateFormat: "Y-m-d", // Specify the date format
+            minDate: "today", // Set minimum date to today
+            disable: [
+                // You can add disabled dates here if needed
+            ],
+            onChange: function (selectedDates, dateStr, instance) {
+                // Calculate the number of days between start and end dates
+                const numDays = Math.ceil((selectedDates[1] - selectedDates[0]) / (1000 * 60 * 60 * 24));
+
+                // Calculate the total rental cost based on the daily rate and number of days
+                const totalCost = dailyRentalRate * numDays;
+
+                // Update the rental cost in the UI
+                document.getElementById("rentalCost").innerText = `Rental Cost: $${totalCost.toFixed(2)}`;
+            },
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+/* ... your existing styles ... */
+
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to flow onto multiple lines */
+    justify-content: space-around; /* Distribute cards nicely */
+    
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    width: 22%; /* Adjust as needed for your ideal card size */
+}
+
+.card i { 
+    font-size: 3em;
+    color: #DC3545; /* Example color */ 
+} 
+
+.card a { 
+    display: block;
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+/* ... existing styles ... */
+
+.card {
+    background: linear-gradient(to right, #f2f6fa, #fff); /* Subtle gradient */ 
+    transition: all 0.3s ease; /* For hover effects */
+}
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Stronger hover shadow */
+    transform: translateY(-3px); /* Slight lift */
+}
+
+.card i {
+    color: #398722; /* Example rich color */
+    margin-bottom: 10px; 
+    display: block; /* Centers the icon above the title */
+} 
+/* ...your existing card styles... */
+
+/* Example: Styling the 2nd card (View Products) */
+.card:nth-child(2) { 
+    background-color: #f0f8ff; /* A very light blue */ 
+} 
+
+.card:nth-child(2) i { 
+    color: #3498db; /* A medium blue */
+} 

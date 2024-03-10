@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bike Rental</title>
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 15px;
+            width: 300px;
+            /* Adjust width as needed */
+        }
+
+        .card {
+            background: linear-gradient(to right, #f0f0f0, #e0e0e0);
+            /* Example gradient */
+            /* ... other styles */
+        }
+        .card {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
+  /* ... other styles */
+} 
+.card {
+  border-radius: 10px; 
+  /* ... other styles */
+}
+.card:hover {
+  transform: scale(1.02); /* Slightly increase size */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+.card {
+  background: linear-gradient(to bottom, #f8f8f8, #e8e8e8);
+  border-radius: 8px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card-image img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card:hover {
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+        .card-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .date-selection {
+            margin-top: 10px;
+        }
+
+        .add-to-cart {
+            background-color: #007bff;
+            /* Sample color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .card {
+  background: linear-gradient(to bottom, #f8f8f8, #e8e8e8);
+  border-radius: 8px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card-image img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card:hover {
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif; /* Main font */
+}
+
+.card {
+  background: linear-gradient(to bottom, #f8f8f8, #e8e8e8);
+  border-radius: 8px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+  margin: 20px;
+  padding: 15px;
+  width: 300px; 
+  position: relative; /* For positioning the overlay */
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card:hover {
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Overlay Styles */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); 
+  opacity: 0; 
+  transition: opacity 0.3s ease-in-out;
+  display: flex; 
+  align-items: center;
+  justify-content: center; 
+}
+
+.rent-now {
+  color: white;
+  font-weight: bold;
+}
+
+.card-image:hover .image-overlay {
+  opacity: 1;
+}
+
+.card-image img:hover {
+  filter: brightness(90%) sepia(10%);
+  transition: filter 0.3s ease-in-out; 
+}
+
+/* Typography */
+h3 {
+  font-family: 'Oswald', sans-serif; /* Heading font */ 
+  margin-bottom: 5px;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="card-image">
+            <img src="shoes.png" alt="Bike Model">
+            <div class="image-overlay">
+              <span class="rent-now">Rent Now</span> 
+            </div>
+          </div>
+        <div class="card-content">
+            <h3>Bike Model</h3>
+            <p>Short description of the bike</p>
+            <div class="date-selection">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" name="start-date">
+
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date" name="end-date">
+            </div>
+            <button class="add-to-cart">Add to Rental Cart</button>
+        </div>
+    </div>
+
+    <script>
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const card = event.target.closest('.card');
+                const bikeModel = card.querySelector('h3').textContent;
+                const startDate = card.querySelector('#start-date').value;
+                const endDate = card.querySelector('#end-date').value;
+
+                // Check if dates are valid (startDate < endDate) 
+                // ... validation code here ...
+
+                // Store rental data (you might use local storage or another method)
+                const rentalData = {
+                    bikeModel: bikeModel,
+                    startDate: startDate,
+                    endDate: endDate
+                };
+                // ... data storing logic here
+
+                // Feedback to the user
+                alert('Bike added to cart!');
+            });
+        });
+    </script>
+</body>
+
+</html>
